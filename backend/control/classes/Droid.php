@@ -9,7 +9,8 @@ class Droid extends Humano implements Robo
 {
     //private significa que somente a propria classe pode acessar
     //sendo necessarios metodos Getter e Setter para modificar e obter seus valores
-    private $NrSerie, $tempoBateria;
+    private $NrSerie;
+    private $tempoBateria = 0;
     private $nome;
 
     public function __construct($nome, $nrSerie)
@@ -18,6 +19,7 @@ class Droid extends Humano implements Robo
         $this->NrSerie = $nrSerie;
         $this->idade = 0;
         $this->forcaMotor = Droid::FORCA_DE_FABRICA;
+        $this->tempoBateria = Droid::CARGA_DE_FABRICA;
     }
 
     public function setCorOlhos($cor)
@@ -63,7 +65,7 @@ class Droid extends Humano implements Robo
         $informacoes .= "Cor dos Olhos: {$this->corOlhos} <br/>";
         $informacoes .= "Numero de serie: {$this->NrSerie} <br/>";
         $informacoes .= "Idade: {$this->idade} <br/>";
-        $informacoes .= "Força Motor: {$this->idade} <br/>";
+        $informacoes .= "Força Motor: {$this->forcaMotor} <br/>";
         $informacoes .= "Tempo Bateria: {$this->tempoBateria} minutos <br/>";
 
         return $informacoes;
