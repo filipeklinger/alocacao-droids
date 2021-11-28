@@ -17,7 +17,12 @@ class Droid extends Humano implements Robo
     {
         $this->nome = $nome;
         $this->NrSerie = $nrSerie;
-        $this->idade = 0;
+
+        //idade e corOlho são herdados da classe Humano
+        $this->idade = Droid::IDADE_INICIAL;
+        $this->corOlhos = Droid::OLHOS_COMUNS;
+
+        //a forca e a carga de fabrica são herdadas da interface "Robo"
         $this->forcaMotor = Droid::FORCA_DE_FABRICA;
         $this->tempoBateria = Droid::CARGA_DE_FABRICA;
     }
@@ -25,6 +30,7 @@ class Droid extends Humano implements Robo
     public function setCorOlhos($cor)
     {
         $this->corOlhos = $cor;
+        $this->gastarBateria();
     }
 
     /**
@@ -43,6 +49,11 @@ class Droid extends Humano implements Robo
         $this->perderForça();
     }
 
+    private function gastarBateria()
+    {
+        $this->tempoBateria--;
+    }
+
     private function perderForça()
     {
         $fatorDePerda = 2;
@@ -51,11 +62,13 @@ class Droid extends Humano implements Robo
 
     public function getTempoBateriaMinutos()
     {
+        $this->gastarBateria();
         return $this->tempoBateria;
     }
 
     public function getNome()
     {
+        $this->gastarBateria();
         return "{$this->nome} N: {$this->NrSerie}";
     }
 
@@ -68,11 +81,15 @@ class Droid extends Humano implements Robo
         $informacoes .= "Força Motor: {$this->forcaMotor} <br/>";
         $informacoes .= "Tempo Bateria: {$this->tempoBateria} minutos <br/>";
 
+        $this->ficarVelho();
+        $this->gastarBateria();
+
         return $informacoes;
     }
 
     public function consertar()
     {
+        $this->gastarBateria();
         $this->forcaMotor = Droid::FORCA_DE_FABRICA;
     }
 }
