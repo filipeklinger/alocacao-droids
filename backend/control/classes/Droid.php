@@ -1,13 +1,12 @@
 <?php
 
-namespace Droids\control\classes;
+namespace Droids\backend\control\classes;
 
-use Droids\control\interfaces\Robo;
+use Droids\backend\control\interfaces\Robo;
 
 //Herança multipla não é permitida então foi criada uma classe humano e uma interface Robo
 class Droid extends Humano implements Robo
 {
-    const FORCA_DE_FABRICA = 1000;
     //private significa que somente a propria classe pode acessar
     //sendo necessarios metodos Getter e Setter para modificar e obter seus valores
     private $NrSerie;
