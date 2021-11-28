@@ -9,7 +9,7 @@ class Droid extends Humano implements Robo
 {
     //private significa que somente a propria classe pode acessar
     //sendo necessarios metodos Getter e Setter para modificar e obter seus valores
-    private $NrSerie;
+    private $NrSerie, $tempoBateria;
     private $nome;
 
     public function __construct($nome, $nrSerie)
