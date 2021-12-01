@@ -33,6 +33,30 @@ class PlanetaBanco
         return $resultado;
     }
 
+    public function Atualizar($planeta)
+    {
+        //criando query de insercao no banco
+        $atualizar = "UPDATE `planeta` 
+        SET 
+        `nome` = '{$planeta->GetNome()}', 
+        `tamanho` = '{$planeta->GetTamanhoNumero()}', 
+        `distancia` = '{$planeta->GetDistanciaNumero()}' 
+        WHERE `planeta`.`id` = '{$planeta->GetId()}'
+        ";
+
+        $resultado = $this->banco->Executa($atualizar);
+
+        if ($resultado == false) {
+            echo "Erro em: " . $atualizar . "<br>" . $this->banco->GetErro() . "<br><br>";
+        }
+        print_r($atualizar);
+
+        return $resultado;
+    }
+
+    /**
+     * @return Planeta
+     */
     public function Buscar($planeta)
     {
         $select = "SELECT * FROM `planeta` WHERE id='{$planeta->GetId()}' ";

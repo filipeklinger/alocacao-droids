@@ -57,6 +57,9 @@ class Rotas
             case 'adicionar_planeta':
                 include_once('./view/planeta/adicionar.php');
                 break;
+            case 'editar_planeta':
+                include_once('./view/planeta/editar.php');
+                break;
 
             default:
                 include_once('./view/inicio.html');

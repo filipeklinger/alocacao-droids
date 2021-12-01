@@ -30,7 +30,7 @@ $lista = $planetaControl->ListaDePlanetas();
                     <td><?= $planeta->GetTamanho() ?></td>
                     <td><?= $planeta->GetDistancia() ?></td>
                     <td>
-                        <a href='./?r=' class="btn btn-primary">
+                        <a href='./?r=editar_planeta&id=<?= $planeta->GetId() ?>' class="btn btn-primary">
                             <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                         </a>
                     </td>

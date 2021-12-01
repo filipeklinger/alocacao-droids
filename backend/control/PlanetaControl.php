@@ -25,6 +25,15 @@ class PlanetaControl
         return $vetor;
     }
 
+    /**
+     * @return Planeta
+     */
+    public function Busca($id)
+    {
+        $this->planeta->SetId($id);
+        return $this->planetaBanco->Buscar($this->planeta);
+    }
+
     public function Cadastrar()
     {
         $this->PostPlaneta();
@@ -40,8 +49,24 @@ class PlanetaControl
         }
     }
 
+    public function Atualizar()
+    {
+        $this->PostPlaneta();
+        $salvo = $this->planetaBanco->Atualizar($this->planeta);
+        if ($salvo) {
+            echo "
+            <h4>Planeta '{$this->planeta->GetNome()}' Atualizado com sucesso!</h4>
+            <br/>
+            <a href='../?r=listar_planetas'>Voltar para Lista</a>
+            ";
+        } else {
+            echo "Erro ao atualizar planeta <br/> <a href='../?r=listar_planetas'>Voltar</a>";
+        }
+    }
+
     private function PostPlaneta()
     {
+        $this->planeta->SetId($this->post('id'));
         $this->planeta->SetNome($this->post('nome'));
         $this->planeta->SetDistancia($this->post('distancia'));
         $this->planeta->SetTamanho($this->post('tamanho'));

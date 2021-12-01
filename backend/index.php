@@ -26,6 +26,10 @@ switch ($rota) {
         $usuarioControl = new PlanetaControl();
         $usuarioControl->Cadastrar();
         break;
+    case 'atualiza_planeta':
+        $usuarioControl = new PlanetaControl();
+        $usuarioControl->Atualizar();
+        break;
 
     default:
         echo "<h2>Rota invalida selecionada</h2>";
