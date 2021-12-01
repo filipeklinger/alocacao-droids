@@ -1,6 +1,7 @@
 <?php
 require '../bibliotecas/autoloadPsr4/autoload.php';
 
+use Droids\backend\control\PlanetaControl;
 use Droids\backend\control\UsuarioControl;
 
 define('INVALIDO', '-1');
@@ -19,6 +20,11 @@ switch ($rota) {
     case 'logout':
         $usuarioControl = new UsuarioControl();
         $usuarioControl->SairDoSistema();
+        break;
+
+    case 'cadastro_planeta':
+        $usuarioControl = new PlanetaControl();
+        $usuarioControl->Cadastrar();
         break;
 
     default:

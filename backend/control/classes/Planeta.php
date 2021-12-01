@@ -35,6 +35,10 @@ class Planeta
     {
         return $this->tamanho . " Milhoes Km²";
     }
+    public function GetTamanhoNumero()
+    {
+        return $this->tamanho;
+    }
     public function SetTamanho($tamanho)
     {
         $this->tamanho = $tamanho;
@@ -43,6 +47,10 @@ class Planeta
     public function GetDistancia()
     {
         return $this->distancia . " Anos Luz da Terra";
+    }
+    public function GetDistanciaNumero()
+    {
+        return $this->distancia;
     }
     public function SetDistancia($distancia)
     {

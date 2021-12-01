@@ -22,7 +22,7 @@ class PlanetaBanco
         $insert = "INSERT INTO `planeta` 
         (`nome`, `tamanho`, `distancia`) 
         VALUES
-        ('{$planeta->GetNome()}', '{$planeta->GetTamanho()}', '{$planeta->GetDistancia()}')";
+        ('{$planeta->GetNome()}', '{$planeta->GetTamanhoNumero()}', '{$planeta->GetDistanciaNumero()}')";
 
         $resultado = $this->banco->Executa($insert);
 
