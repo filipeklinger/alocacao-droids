@@ -12,8 +12,9 @@ switch ($rota) {
         $usuarioControl = new UsuarioControl();
         $usuarioControl->CriarUsuario();
         break;
-    case 'criar_droid':
-        // CriarClassesPerifericas();
+    case 'login':
+        $usuarioControl = new UsuarioControl();
+        $usuarioControl->FazerLogin();
         break;
 
     default:

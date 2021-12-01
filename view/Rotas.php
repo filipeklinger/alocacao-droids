@@ -42,9 +42,12 @@ class Rotas
     {
         $rota = isset($_GET['r']) ? $_GET['r'] : '';
         //inclui menu em todas as rotas internas
-        include_once('./view/partesComuns/menu.html');
+        include_once('./view/partesComuns/menu.php');
 
         switch ($rota) {
+            case 'inicio':
+                include_once('./view/inicio.html');
+                break;
             case 'incluir_droid':
                 include_once('./view/droid/incluir.html');
                 break;

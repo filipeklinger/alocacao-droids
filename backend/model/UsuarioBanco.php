@@ -28,4 +28,16 @@ class UsuarioBanco
 
         return $resultado;
     }
+
+    public function Buscar($usuario)
+    {
+        $select = "SELECT * FROM `usuario` WHERE id='{$usuario->GetId()}' OR usuario='{$usuario->GetUsuario()}'";
+        $resultado = $this->banco->Executa($select);
+
+        //verificando se foram retornados dados na consulta
+        if ($resultado) {
+            //como queremos apenas 1 buscado recuperamos somente a primeira linha
+            return mysqli_fetch_assoc($resultado);
+        }
+    }
 }

@@ -4,6 +4,7 @@ namespace Droids\backend\control\classes;
 
 class Usuario
 {
+    private $id;
     private $nome;
     private $usuario;
     private $senha;
@@ -13,6 +14,15 @@ class Usuario
     }
 
     //Gettes e setters do Usuario
+    public function SetId($id)
+    {
+        $this->id = $id;
+    }
+    public function GetId()
+    {
+        return $this->id;
+    }
+
     public function SetNome($nome)
     {
         $this->nome = $nome;
