@@ -96,6 +96,9 @@ class UsuarioControl
 
     public function SairDoSistema()
     {
+        //inicia a sessao obtendo as variaveis setadas e o id da sessao
+        session_start();
+
         // remove todas as variaveis da sessao
         session_unset();
 
@@ -103,5 +106,6 @@ class UsuarioControl
         session_destroy();
 
         header("Location: ../?r=login"); //redireciona para login
+        die(); //finaliza o script para nao haver erro ao redirecionar
     }
 }
