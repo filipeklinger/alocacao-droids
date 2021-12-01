@@ -15,7 +15,7 @@ class Rotas
 
     public function usuarioLogado()
     {
-        if (isset($_SESSION["usuario"])) {
+        if (isset($_SESSION["usuario"]) && $_SESSION["usuario"] != '') {
             return true;
         } {
             return false;

@@ -54,13 +54,17 @@ class UsuarioControl
         return isset($_POST[$parametro]) ? $_POST[$parametro] : '';
     }
 
+    /**
+     * @param Usuario $resultado
+     */
     private function VereficaCredencial($resultado)
     {
         //o resultado aqui é um vetor com todos os atributos da tabela usuario
-        $usuarioIgual = $resultado['usuario'] == $this->usuario->GetUsuario();
-        $senhaIgual = $resultado['senha'] == $this->usuario->GetSenha();
+        $usuarioIgual = $resultado->GetUsuario() == $this->usuario->GetUsuario();
+        $senhaIgual = $resultado->GetSenha() == $this->usuario->GetSenha();
 
         if ($usuarioIgual && $senhaIgual) {
+            $this->usuario = $resultado;
             $this->RegistraLogin();
             header("Location: ../?r=inicio"); //redireciona para pagina inicial
             die(); //finaliza o script para nao haver erro ao redirecionar
@@ -88,5 +92,16 @@ class UsuarioControl
         echo "Usuario<br/><pre>";
         print_r($this->usuario);
         echo "</pre>";
+    }
+
+    public function SairDoSistema()
+    {
+        // remove todas as variaveis da sessao
+        session_unset();
+
+        // destroi a sessao
+        session_destroy();
+
+        header("Location: ../?r=login"); //redireciona para login
     }
 }

@@ -35,9 +35,20 @@ class UsuarioBanco
         $resultado = $this->banco->Executa($select);
 
         //verificando se foram retornados dados na consulta
-        if ($resultado) {
+        if (isset($resultado) && $resultado != false) {
             //como queremos apenas 1 buscado recuperamos somente a primeira linha
-            return mysqli_fetch_assoc($resultado);
+            $atributos = mysqli_fetch_assoc($resultado);
+            return $this->CriaObjetoUsuarioDe($atributos);
         }
+    }
+
+    private function CriaObjetoUsuarioDe($atributos)
+    {
+        $usuario = new Usuario();
+        $usuario->SetId($atributos['id']);
+        $usuario->SetNome($atributos['nome']);
+        $usuario->SetUsuario($atributos['usuario']);
+        $usuario->SetSenha($atributos['senha']);
+        return $usuario;
     }
 }

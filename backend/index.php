@@ -16,8 +16,12 @@ switch ($rota) {
         $usuarioControl = new UsuarioControl();
         $usuarioControl->FazerLogin();
         break;
+    case 'logout':
+        $usuarioControl = new UsuarioControl();
+        $usuarioControl->SairDoSistema();
+        break;
 
     default:
-        # code...
+        echo "<h2>Rota invalida selecionada</h2>";
         break;
 }
