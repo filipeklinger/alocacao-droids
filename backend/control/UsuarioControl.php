@@ -62,17 +62,13 @@ class UsuarioControl
 
         if ($usuarioIgual && $senhaIgual) {
             $this->RegistraLogin();
-            //sucesso redireciona para pagina inicial
-            header("Location: ../?r=inicio");
-            die();
+            header("Location: ../?r=inicio"); //redireciona para pagina inicial
+            die(); //finaliza o script para nao haver erro ao redirecionar
         } else {
             //falha redireciona para login
-            echo "<pre>";
-            print_r($resultado);
-            echo "</pre><br/><br/><br/>";
-            echo "<pre>";
-            print_r($this->usuario);
-            echo "</pre>";
+            echo "<h1>Falha ao Realizar login, usuario ou senha invalidos</h1><br/>";
+            echo "<br/> <a href='../?r=login'>Voltar Para login</a>";
+            $this->DebugErro($resultado);
         }
     }
 
@@ -81,5 +77,16 @@ class UsuarioControl
         session_start();
         $_SESSION["usuario"] = $this->usuario->GetNome();
         $_SESSION["usuario_id"] = $this->usuario->GetId();
+    }
+
+    private function DebugErro($resultado)
+    {
+        echo "<br/>Debug:<br/>";
+        echo "Resultado:<br/><pre>";
+        print_r($resultado);
+        echo "</pre><br/><br/>";
+        echo "Usuario<br/><pre>";
+        print_r($this->usuario);
+        echo "</pre>";
     }
 }
