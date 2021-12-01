@@ -1,17 +1,11 @@
 <?php
-function obterConteudo()
-{
-    $rota = isset($_GET['r']) ? $_GET['r'] : '';
-    switch ($rota) {
-        case 'incluir_droid':
-            include_once('./view/droid/incluir.html');
-            break;
+// A "session_start" deve ser a primeira coisa em seu documento. Antes de qualquer tag HTML.
+session_start();
+require './bibliotecas/autoloadPsr4/autoload.php';
 
-        default:
-            include_once('./view/inicio.html');
-            break;
-    }
-}
+use Droids\view\Rotas;
+
+$rota = new Rotas();
 ?>
 <!doctype html>
 
@@ -29,23 +23,7 @@ function obterConteudo()
 </head>
 
 <body>
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="?r=inicio">Alocação Droids</a>
-            </div>
-            <ul class="nav navbar-nav">
-                <li><a href="?r=inicio">Home</a></li>
-                <li><a href="?r=incluir_droid">Adicionar Droid</a></li>
-                <li><a href="#">Ver Planetas</a></li>
-                <li><a href="#">Alocações</a></li>
-            </ul>
-        </div>
-    </nav>
-    <div class="container">
-        <?php obterConteudo(); ?>
-    </div>
-
+    <?php $rota->obterConteudo(); ?>
 </body>
 
 </html>
