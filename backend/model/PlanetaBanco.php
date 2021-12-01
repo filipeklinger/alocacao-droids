@@ -35,7 +35,7 @@ class PlanetaBanco
 
     public function Atualizar($planeta)
     {
-        //criando query de insercao no banco
+        //criando query
         $atualizar = "UPDATE `planeta` 
         SET 
         `nome` = '{$planeta->GetNome()}', 
@@ -49,7 +49,23 @@ class PlanetaBanco
         if ($resultado == false) {
             echo "Erro em: " . $atualizar . "<br>" . $this->banco->GetErro() . "<br><br>";
         }
-        print_r($atualizar);
+
+        return $resultado;
+    }
+
+    public function Deletar($planeta)
+    {
+        //criando query
+        $deleta = "DELETE FROM `planeta` 
+        WHERE `planeta`.`id` = '{$planeta->GetId()}'
+        ";
+
+        $resultado = $this->banco->Executa($deleta);
+
+        if ($resultado == false) {
+            echo "Erro em: " . $deleta . "<br>" . $this->banco->GetErro() . "<br><br>";
+        }
+        print_r($deleta);
 
         return $resultado;
     }

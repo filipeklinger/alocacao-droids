@@ -35,7 +35,7 @@ $lista = $planetaControl->ListaDePlanetas();
                         </a>
                     </td>
                     <td>
-                        <a href='./?r=' class="btn btn-warning">
+                        <a href='./?r=excluir_planeta&id=<?= $planeta->GetId() ?>' class="btn btn-warning">
                             <span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>
                         </a>
                     </td>

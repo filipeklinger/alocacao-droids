@@ -30,6 +30,10 @@ switch ($rota) {
         $usuarioControl = new PlanetaControl();
         $usuarioControl->Atualizar();
         break;
+    case 'excluir_planeta':
+        $usuarioControl = new PlanetaControl();
+        $usuarioControl->Excluir();
+        break;
 
     default:
         echo "<h2>Rota invalida selecionada</h2>";

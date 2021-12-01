@@ -60,6 +60,9 @@ class Rotas
             case 'editar_planeta':
                 include_once('./view/planeta/editar.php');
                 break;
+            case 'excluir_planeta':
+                include_once('./view/planeta/excluir.php');
+                break;
 
             default:
                 include_once('./view/inicio.html');

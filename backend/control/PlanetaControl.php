@@ -64,6 +64,21 @@ class PlanetaControl
         }
     }
 
+    public function Excluir()
+    {
+        $this->PostPlaneta();
+        $salvo = $this->planetaBanco->Deletar($this->planeta);
+        if ($salvo) {
+            echo "
+            <h4>Planeta '{$this->planeta->GetNome()}' Deletado com sucesso!</h4>
+            <br/>
+            <a href='../?r=listar_planetas'>Voltar para Lista</a>
+            ";
+        } else {
+            echo "Erro ao deletar planeta <br/> <a href='../?r=listar_planetas'>Voltar</a>";
+        }
+    }
+
     private function PostPlaneta()
     {
         $this->planeta->SetId($this->post('id'));

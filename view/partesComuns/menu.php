@@ -7,7 +7,6 @@
             <li><a href="?r=inicio">Home</a></li>
             <li><a href="?r=listar_droids">Ver Droids</a></li>
             <li><a href="?r=listar_planetas">Ver Planetas</a></li>
-            <li><a href="#">Alocações</a></li>
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
