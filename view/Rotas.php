@@ -48,8 +48,8 @@ class Rotas
             case 'inicio':
                 include_once('./view/inicio.html');
                 break;
-            case 'incluir_droid':
-                include_once('./view/droid/incluir.html');
+            case 'listar_droids':
+                include_once('./view/droid/listarDroids.php');
                 break;
             case 'cadastro_usuario':
                 include_once('./view/usuario/cadastro.html');

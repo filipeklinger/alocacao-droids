@@ -5,7 +5,7 @@
         </div>
         <ul class="nav navbar-nav">
             <li><a href="?r=inicio">Home</a></li>
-            <li><a href="?r=incluir_droid">Ver Droids</a></li>
+            <li><a href="?r=listar_droids">Ver Droids</a></li>
             <li><a href="#">Ver Planetas</a></li>
             <li><a href="#">Alocações</a></li>
         </ul>

@@ -9,9 +9,11 @@ class Droid extends Humano implements Robo
 {
     //private significa que somente a propria classe pode acessar
     //sendo necessarios metodos Getter e Setter para modificar e obter seus valores
+    private $id;
     private $NrSerie;
     private $tempoBateria = 0;
     private $nome;
+    private $forcaMotor;
 
     public function __construct($nome, $nrSerie)
     {
@@ -27,11 +29,50 @@ class Droid extends Humano implements Robo
         $this->tempoBateria = Droid::CARGA_DE_FABRICA;
     }
 
-    public function setCorOlhos($cor)
+    public function SetId($id)
     {
-        $this->corOlhos = $cor;
-        $this->gastarBateria();
+        $this->id = $id;
     }
+    public function GetId()
+    {
+        return $this->id;
+    }
+
+    public function SetForcaMotor($forcaMotor)
+    {
+        $this->forcaMotor = $forcaMotor;
+    }
+    public function GetForcaMotor()
+    {
+        return $this->forcaMotor;
+    }
+
+    public function SetTempoBateria($tempoBateria)
+    {
+        $this->tempoBateria = $tempoBateria;
+    }
+
+    public function GetTempoBateria()
+    {
+        return $this->tempoBateria . " Minutos";
+    }
+
+    public function SetNome($nome)
+    {
+        $this->nome = $nome;
+    }
+
+    public function GetNome()
+    {
+        return $this->nome;
+    }
+
+    public function GetNrSerie()
+    {
+        return $this->NrSerie;
+    }
+
+
 
     /**
      * A cada carga o Droid fica mais velho
@@ -40,56 +81,11 @@ class Droid extends Humano implements Robo
     {
         $energiaPorMinuto = 10;
         $this->tempoBateria = ($tempoCarregamento * $energiaPorMinuto);
-        $this->ficarVelho();
-    }
-
-    private function ficarVelho()
-    {
-        $this->idade++;
-        $this->perderForça();
-    }
-
-    private function gastarBateria()
-    {
-        $this->tempoBateria--;
-    }
-
-    private function perderForça()
-    {
-        $fatorDePerda = 2;
-        $this->forcaMotor = ($this->forcaMotor - ($this->idade * $fatorDePerda));
-    }
-
-    public function getTempoBateriaMinutos()
-    {
-        $this->gastarBateria();
-        return $this->tempoBateria;
-    }
-
-    public function getNome()
-    {
-        $this->gastarBateria();
-        return "{$this->nome} N: {$this->NrSerie}";
-    }
-
-    public function getInformacoesDroid()
-    {
-        $informacoes = " Informações do Droid {$this->nome} <br/> ";
-        $informacoes .= "Cor dos Olhos: {$this->corOlhos} <br/>";
-        $informacoes .= "Numero de serie: {$this->NrSerie} <br/>";
-        $informacoes .= "Idade: {$this->idade} <br/>";
-        $informacoes .= "Força Motor: {$this->forcaMotor} <br/>";
-        $informacoes .= "Tempo Bateria: {$this->tempoBateria} minutos <br/>";
-
-        $this->ficarVelho();
-        $this->gastarBateria();
-
-        return $informacoes;
     }
 
     public function consertar()
     {
-        $this->gastarBateria();
+        //$this->gastarBateria();
         $this->forcaMotor = Droid::FORCA_DE_FABRICA;
     }
 }
