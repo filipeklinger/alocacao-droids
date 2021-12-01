@@ -51,8 +51,11 @@ class Rotas
             case 'listar_droids':
                 include_once('./view/droid/listarDroids.php');
                 break;
-            case 'cadastro_usuario':
-                include_once('./view/usuario/cadastro.html');
+            case 'listar_planetas':
+                include_once('./view/planeta/listarPlaneta.php');
+                break;
+            case 'adicionar_planeta':
+                include_once('./view/planeta/adicionar.php');
                 break;
 
             default:

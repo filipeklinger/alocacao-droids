@@ -4,28 +4,48 @@ namespace Droids\backend\control\classes;
 
 class Planeta
 {
+    private $id;
     private $nome;
     private $tamanho;
     private $distancia;
 
-    public function __construct($nome, $tamanho, $distancia)
+    public function __construct()
     {
-        $this->nome = $nome;
-        $this->tamanho = $tamanho;
-        $this->distancia = $distancia;
     }
 
-    public function getNome()
+    public function SetId($id)
+    {
+        $this->id = $id;
+    }
+    public function GetId()
+    {
+        return $this->id;
+    }
+
+    public function GetNome()
     {
         return $this->nome;
     }
-
-    public function getInformacoes()
+    public function SetNome($nome)
     {
-        $informacoes = "Planeta: {$this->nome}<br/>";
-        $informacoes .= "Tamanho: {$this->tamanho}Milhoes Km²<br/>";
-        $informacoes .= "Distancia: {$this->distancia} Ano(s) Luz da Terra<br/>";
+        $this->nome = $nome;
+    }
 
-        return $informacoes;
+    public function GetTamanho()
+    {
+        return $this->tamanho . " Milhoes Km²";
+    }
+    public function SetTamanho($tamanho)
+    {
+        $this->tamanho = $tamanho;
+    }
+
+    public function GetDistancia()
+    {
+        return $this->distancia . " Anos Luz da Terra";
+    }
+    public function SetDistancia($distancia)
+    {
+        $this->distancia = $distancia;
     }
 }

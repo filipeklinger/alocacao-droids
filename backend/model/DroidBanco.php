@@ -21,7 +21,7 @@ class DroidBanco
 
         //verificando se foram retornados dados na consulta
         if (isset($resultado) && $resultado != false) {
-            //enquanto houver uma linha não lida adicionar ao vetor de locais
+            //enquanto houver uma linha não lida adicionar ao vetor
             while ($linha = mysqli_fetch_assoc($resultado)) {
                 $droidVetor[] = $this->CriaObjetoDroidDe($linha);
             }
